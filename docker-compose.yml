@@ -1,0 +1,18 @@
+version: "3.9"
+
+services: 
+
+    test:
+        user: $UID:$GUID
+        image: grafana/grafana:latest # toggle 7.5.7 and latest to see issue
+        ports: ["3000:3000"]
+        volumes: [./data:/var/lib/grafana:rw]
+        environment:
+            GF_INSTALL_PLUGINS: grafana-clock-panel 1.0.1
+            GF_SECURITY_ADMIN_USER: admin
+            GF_SECURITY_ADMIN_PASSWORD: super_secret
+            GF_USERS_ALLOW_SIGN_UP: "false"
+
+
+
+
